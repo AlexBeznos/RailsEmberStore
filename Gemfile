@@ -1,8 +1,11 @@
+source 'https://rubygems.org'
 
 gem 'rails', '4.1.0'
 gem 'rails-api'
 gem 'ember-rails'
 gem 'jquery-rails'
+gem 'puma'
+gem 'active_model_serializers'
 gem 'spring', :group => :development
 
 group :development, :test do
@@ -13,8 +16,10 @@ group :development, :test do
   gem 'factory_girl_rails'
 end
 
-
-gem 'rails_12factor', group: :production
+group :production do
+  gem 'rails_12factor'
+  gem 'pg'
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
