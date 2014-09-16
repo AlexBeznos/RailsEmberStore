@@ -7,6 +7,7 @@ gem 'jquery-rails'
 gem 'puma'
 gem 'active_model_serializers'
 gem 'spring', :group => :development
+gem 'uglifier'
 
 group :development, :test do
   gem 'sqlite3'
