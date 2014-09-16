@@ -2,6 +2,7 @@
 gem 'rails', '4.1.0'
 gem 'rails-api'
 gem 'ember-rails'
+gem 'jquery-rails'
 gem 'spring', :group => :development
 
 group :development, :test do

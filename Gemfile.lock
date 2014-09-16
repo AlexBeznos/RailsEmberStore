@@ -186,6 +186,7 @@ DEPENDENCIES
   ember-rails
   factory_girl_rails
   guard-rspec
+  jquery-rails
   rails (= 4.1.0)
   rails-api
   rails_12factor
