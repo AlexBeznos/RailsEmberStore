@@ -6,7 +6,7 @@ RSpec.describe Order, :type => :model do
   end
 
   it "should have many products" do
-  	should have_many(:product)
+  	should have_and_belong_to_many(:products)
   end
 
   it "should validate presence of phone" do
