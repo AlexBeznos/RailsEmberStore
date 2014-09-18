@@ -8,6 +8,7 @@ gem 'puma'
 gem 'active_model_serializers'
 gem 'spring', :group => :development
 gem 'uglifier'
+gem 'rails_config'
 
 group :development, :test do
   gem 'sqlite3'
