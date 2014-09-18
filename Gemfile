@@ -5,7 +5,7 @@ gem 'rails-api'
 gem 'ember-rails'
 gem 'jquery-rails'
 gem 'puma'
-gem 'active_model_serializers'
+gem 'active_model_serializers', "0.8.2"
 gem 'spring', :group => :development
 gem 'uglifier'
 gem 'rails_config'
