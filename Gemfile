@@ -13,6 +13,7 @@ group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'shoulda-matchers', require: false
   gem 'guard-rspec', require: false
   gem 'factory_girl_rails'
 end
