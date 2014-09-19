@@ -48,7 +48,7 @@ module API
       end
       private
       def tl_params
-        params.require(:category).permit(:name)
+        params.require(:category).permit(:name, :alias, :position, :menu, :status, :parent_category)
       end
   end
 end

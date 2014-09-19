@@ -4,9 +4,9 @@ class CreateProducts < ActiveRecord::Migration
       t.string :name
       t.decimal :price
       t.string :alias
-      t.boolean :active_on_storage
+      t.boolean :active_on_storage, :default => true
       t.integer :on_storage
-      t.boolean :active
+      t.boolean :active, :default => true
       t.integer :position
 
       t.timestamps

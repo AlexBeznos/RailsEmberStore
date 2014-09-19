@@ -5,7 +5,7 @@ class CreateCategories < ActiveRecord::Migration
       t.string :alias
       t.integer :position
       t.integer :menu
-      t.boolean :status
+      t.boolean :status, :default => true
       t.references :parent_category
 
       t.timestamps

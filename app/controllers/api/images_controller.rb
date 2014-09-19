@@ -48,7 +48,7 @@ module API
       end
       private
       def tl_params
-        params.require(:image).permit(:name)
+        params.require(:image).permit(:path, :main, :product_id)
       end
   end
 end

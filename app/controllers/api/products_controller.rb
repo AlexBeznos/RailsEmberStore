@@ -20,6 +20,9 @@ module API
         @product = Product.new(tl_params)
 
         if @product.save
+    	    if opt_params
+	        	@product.add_images_and_cateries(opt_params)
+	       	end
           render json: @product, status: :created
         else
            render json: @product.errors, status: :unprocessable_entity
@@ -48,7 +51,10 @@ module API
       end
       private
       def tl_params
-        params.require(:product).permit(:name)
+        params.require(:product).permit(:name, :price, :alias, :active_on_storage, :on_storage, :active, :position)
+      end
+      def opt_params
+      	params.require(:optional).permit(:categories, :images)
       end
   end
 end
