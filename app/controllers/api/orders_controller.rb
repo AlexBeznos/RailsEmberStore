@@ -20,6 +20,9 @@ module API
         @order = Order.new(tl_params)
 
         if @order.save
+          if params[:product]
+          	@order.create_order(params[:product])
+          end
           render json: @order, status: :created
         else
            render json: @order.errors, status: :unprocessable_entity
@@ -48,7 +51,7 @@ module API
       end
       private
       def tl_params
-        params.require(:order).permit(:name)
+        params.require(:order).permit(:phone, :addres, :name, :sum)
       end
   end
 end

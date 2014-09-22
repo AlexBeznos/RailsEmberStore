@@ -28,6 +28,33 @@ describe API::OrdersController, :type => :controller do
 		end
 	end
 	describe "create action" do
-
+		before :each do
+			params = {
+				product: [@product1, @product2],
+				order: {
+    				name: "Hello",
+    				phone: "234124",
+    				addres: "sdfasdf",
+    				sum: 23.43 
+    			}
+			}
+			post :create, params
+		end
+		it "should response with 201 status" do
+			expect(response.status).to eq 201
+		end
+		it "should create new order" do
+			expect(Order.last.name).to eq "Hello"
+		end
+		it "should add products to order" do
+			id_arr = Order.last.products.map {|prod| prod.id }
+			expect(id_arr).to match_array [@product1.id, @product2.id]
+		end
+		it "should output correct json" do
+			body = JSON.parse(response.body)
+			orders = body["order"]
+			expect(orders["id"].to_i).to eq Order.last.id
+			expect(orders["product_ids"]).to match_array [@product1.id, @product2.id]
+		end
 	end
 end
