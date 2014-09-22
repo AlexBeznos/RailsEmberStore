@@ -5,12 +5,11 @@ describe API::ProductsController, :type => :controller do
 		before :each do
 			@cat1 = FactoryGirl.create(:category)
 			@cat2 = FactoryGirl.create(:category)
+			@cat3 = FactoryGirl.create(:category)
+			@cat4 = FactoryGirl.create(:category)
+			@cat3.subcategories << @cat2
+			@cat4.subcategories << @cat3
 			params = {
-				product: {
-					name: "iphone 4s",
-					price: 4.55,
-					alias: "iphone_4s"
-				},
 				optional: {
 					categories: [@cat1.id, @cat2.id],
 					images: [{
@@ -21,7 +20,12 @@ describe API::ProductsController, :type => :controller do
 								img: fixture_file_upload('images/rabby1.jpg','image/jpeg'),
 								main: false
 					        }]
-				} 
+				},
+				product: {
+					name: "iphone 4s",
+					price: 4.55,
+					alias: "iphone_4s"
+				}
 			}
 
 			post :create, params
@@ -32,9 +36,18 @@ describe API::ProductsController, :type => :controller do
 		end
 
 		it "should write correct categories" do
+			body = JSON.parse(response.body)
+			expect(Product.find(body["product"]["id"]).categories).to include(@cat1, @cat2)
 		end
 
+		it "should add product to all parent categories" do
+			expect(@cat3.products).to include(Product.last)
+			expect(@cat4.products).to include(Product.last)
+		end
+ 
 		it "should write images" do
+			body = JSON.parse(response.body)
+			body["images"].should_not be_empty
 		end
 	end
 end
