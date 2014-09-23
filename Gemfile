@@ -4,7 +4,6 @@ gem 'rails', '4.1.0'
 gem 'rails-api'
 gem 'ember-rails'
 gem 'jquery-rails'
-gem 'puma'
 gem 'active_model_serializers', "0.8.2"
 gem 'spring', :group => :development
 gem 'uglifier'
@@ -23,6 +22,7 @@ end
 group :production do
   gem 'rails_12factor'
   gem 'pg'
+  gem 'puma'
 end
 
 # To use ActiveModel has_secure_password
