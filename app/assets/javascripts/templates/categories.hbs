@@ -1,15 +1,9 @@
 THis is categoires: <br>
 <ul>
 	{{#each itemController='category'}}
-    {{#if sub}}
-  		<li>{{name}}</li>
-  		{{#if subcategory_ids}}
-  		  <ul>
-  		    {{#each subcategory_ids}}
-            <li>{{name}}</li>
-          {{/each}}
-        </ul>
-      {{/if}}
-    {{/if}}
+	    {{#if parent}}
+	  		<li>{{name}} - <a {{action 'destroy'}}>Delete</a></li>
+	  		{{render 'subcategories' subcategory_ids}}
+	    {{/if}}
 	{{/each}}
 </ul>

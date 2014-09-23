@@ -1,0 +1,6 @@
+<ul>
+	{{#each itemController="subcategory"}}
+    	<li>{{name}} - <a {{action 'destroy'}}>Delete</a></li>
+      {{render 'subcategories' subcategory_ids}}
+  {{/each}}
+</ul>
