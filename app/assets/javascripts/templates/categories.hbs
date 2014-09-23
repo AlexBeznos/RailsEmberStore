@@ -1,0 +1,15 @@
+THis is categoires: <br>
+<ul>
+	{{#each itemController='category'}}
+    {{#if sub}}
+  		<li>{{name}}</li>
+  		{{#if subcategory_ids}}
+  		  <ul>
+  		    {{#each subcategory_ids}}
+            <li>{{name}}</li>
+          {{/each}}
+        </ul>
+      {{/if}}
+    {{/if}}
+	{{/each}}
+</ul>

@@ -1,4 +1,4 @@
 class CategorySerializer < ApplicationSerializer
 	attributes :id, :name, :alias, :parent_category_id, :position, :menu, :status
-	has_many :products
+	has_many :subcategories
 end

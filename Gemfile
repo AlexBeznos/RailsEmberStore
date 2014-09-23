@@ -11,6 +11,7 @@ gem 'uglifier'
 gem 'rails_config'
 
 group :development, :test do
+  gem 'jasmine'
   gem 'sqlite3'
   gem 'rspec-rails'
   gem 'capybara'
