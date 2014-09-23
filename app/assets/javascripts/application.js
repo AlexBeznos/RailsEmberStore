@@ -8,3 +8,6 @@
 // for more details see: http://emberjs.com/guides/application/
 Store = Ember.Application.create();
 
+Store.Router.reopen({
+  location: 'auto'
+});
