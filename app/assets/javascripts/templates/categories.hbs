@@ -7,3 +7,20 @@ THis is categoires: <br>
 	    {{/if}}
 	{{/each}}
 </ul>
+<button {{action 'openForm'}}>{{#if isForm}}Close{{else}}Open{{/if}}</button>
+{{#if isForm}} 
+  <form>
+    Name: {{input type="text" valueBinding="newName"}}<br>
+    Aliase: {{input type="text" valueBinding="newAlias"}}<br>
+    Position: {{input type="text" valueBinding="newPosition"}}<br>
+    Menu: {{input type="text" valueBinding="newMenu"}}<br>
+    Status: {{input type="checkbox" valueBinding="newStatus"}}<br>
+    Parent category: {{view Ember.Select
+                              content=content
+                              optionValuePath="content.id"
+                              optionLabelPath="content.name"
+                              value=parentID
+                      }}<br>
+    <button {{action 'createCategory'}}>Submit</button>
+  </form>
+{{/if}}

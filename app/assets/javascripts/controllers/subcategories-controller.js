@@ -1,3 +1,1 @@
-Store.SubcategoryController = Ember.ArrayController.extend({
-	
-});
+Store.SubcategoriesController = Ember.ArrayController.extend();
