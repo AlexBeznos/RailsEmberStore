@@ -5,8 +5,9 @@ module Products
   end
 
   def add_images(img_arr)
+    require 'base64'
     img_arr.each do |hash|
-      name = hash.original_filename
+      name = Base64.encode64(hash.original_filename) + File.extname(hash.original_filename)
       directory = "public/images"
       path = File.join(directory, name)
       File.open(path, "wb") { |f| f.write(hash.read) }
@@ -15,15 +16,10 @@ module Products
   end
 
   def add_categories(cat_arr)
-    cat_arr.each do |id|
+    ids = cat_arr.split(',').map!(&:to_i)
+    ids.each do |id|
       category = Category.find(id)
       self.categories << category
-      self.deal_with_category(category.parent_category) if category.parent_category
     end
-  end
-
-  def deal_with_category(category)
-    category.products << self
-    self.deal_with_category(category.parent_category) if category.parent_category
   end
 end

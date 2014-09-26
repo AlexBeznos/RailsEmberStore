@@ -2,6 +2,12 @@
   name: {{input type="text" valueBinding="newName"}}<br>
   alias: {{input type="text" valueBinding="newAlias"}}<br>
   price: {{input type="text" valueBinding="newPrice"}}<br>
+  category: <br>
+  <ul>
+    {{#each proxiedCategory}}
+      <li>{{content.name}}{{input type="checkbox" class="pull-right" checked=checked}}</li>
+    {{/each}}
+  </ul>
   {{#view view.DragDrop}}
     {{#if uploadStatus.error}}
         <div class="error">An error occurred during the upload process. Please try again later.</div>

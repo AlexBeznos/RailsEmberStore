@@ -6,5 +6,6 @@ Store.Product = DS.Model.extend({
 	on_storage: DS.attr('boolean'),
 	active: DS.attr('boolean'),
 	position: DS.attr('number'),
-	image_ids: DS.hasMany('image')
+	image_ids: DS.hasMany('image'),
+	category_ids: DS.hasMany('category')
 })

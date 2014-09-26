@@ -4,7 +4,20 @@ Store.AddProductController = Ember.Controller.extend(DropletController, {
 	mimeTypes: ["image/gif", "image/jpeg", "image/pjpeg", 'image/png'],
 	didUploadFiles: function(response) {
         console.log(response);
-    },
+  },
+  categories: function() {
+    return this.store.find('category')
+  }.property('store'),
+  proxiedCategory: Ember.computed.map('categories', function(categories) {
+    {
+      return Ember.ObjectProxy.create({
+        content: categories,
+        checked: false
+      });
+    }
+  }),
+  proxiedCheckedCategory: Ember.computed.filterBy('proxiedCategory', 'checked', true),
+  proxiedItems: Ember.computed.mapBy('proxiedCheckedCategory', 'content.id'),
 	actions: {
 		submit: function() {
 
@@ -16,7 +29,8 @@ Store.AddProductController = Ember.Controller.extend(DropletController, {
                 name: this.get('newName'),
                 alias: this.get('newAlias'),
                 price: this.get('newPrice')
-            });
+            })
+            controller = this;
 
 
         if (this.get('validFiles').length === 0) {
@@ -25,23 +39,43 @@ Store.AddProductController = Ember.Controller.extend(DropletController, {
         
         this.set('uploadStatus.uploading', true);
         this.set('uploadStatus.error', false);
-        var formData = new FormData();
+
+
+        var formDataImages = new FormData();
         var fieldName = 'images[]';
         Ember.EnumerableUtils.forEach(this.get('validFiles'), function(file) {
-            formData.append(fieldName, file.file);
+            formDataImages.append(fieldName, file.file);
         }, this);
+
+
+        var formDataCategories = new FormData();
+        formDataCategories.append("categories", this.get('proxiedItems')); 
         
-        product.save().then(function() {
+        product.save().then(function(product) {
           Ember.$.ajax({
           url: 'api/products',
           type: 'POST',
-          data: formData,
+          data: formDataImages,
           processData: false,
           contentType: false,
           success: function(res) {
-            console.log('success')
+            
+            Ember.$.ajax({
+              url: 'api/products',
+              type: 'POST',
+              data: formDataCategories,
+              processData: false,
+              contentType: false,
+              success: function(res) {
+                controller.controllerFor('products').send('openForm')
+              },
+              error: function(res) {
+                console.log(res)
+              }
+            })
           },
           error: function(res) {
+            console.log(res)
           }
           })
       });

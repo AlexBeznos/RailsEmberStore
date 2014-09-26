@@ -2,6 +2,11 @@
 <ul>
 	{{#each}}
 		<li>{{name}}</li>
+		<ul>
+			{{#each category_ids}}
+				<li>{{name}}</li>
+			{{/each}}
+		</ul>
 	{{/each}}
 </ul>
 

@@ -24,9 +24,11 @@ module API
         end
 
         if params[:categories]
-          puts params[:categories]
+          Product.last.add_categories(params[:categories])
+          render json: Product.last.categories, status: :created
+          return
         end
-        
+
         if tl_params
           @product = Product.new(tl_params)
           if @product.save
