@@ -17,16 +17,23 @@ module API
       # POST /Products
       # POST /Products.json
       def create
+        if params[:images]
+          Product.last.add_images(params[:images])
+          render json: Product.last.images, status: :created
+          return
+        end
 
-        puts params
-        @product = Product.new(tl_params)
-        if @product.save
-    	    if params[:optional]
-	        	@product.create_product(params[:optional])
-	       	end
-          render json: @product, status: :created
-        else
-           render json: @product.errors, status: :unprocessable_entity
+        if params[:categories]
+          puts params[:categories]
+        end
+        
+        if tl_params
+          @product = Product.new(tl_params)
+          if @product.save
+            render json: @product, status: :created
+          else
+             render json: @product.errors, status: :unprocessable_entity
+          end
         end
       end
 

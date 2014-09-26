@@ -6,11 +6,11 @@ module Products
 
   def add_images(img_arr)
     img_arr.each do |hash|
-      name = hash[:img].original_filename
+      name = hash.original_filename
       directory = "public/images"
       path = File.join(directory, name)
-      File.open(path, "wb") { |f| f.write(hash[:img].read) }
-      self.images << Image.create(path: path, main: hash[:main])
+      File.open(path, "wb") { |f| f.write(hash.read) }
+      Product.last.images << Image.create(path: path)
     end
   end
 
