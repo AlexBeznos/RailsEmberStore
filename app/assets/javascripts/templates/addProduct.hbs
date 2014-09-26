@@ -1,1 +1,24 @@
-Adding product
+<form>
+  name: {{input type="text" valueBinding="newName"}}<br>
+  alias: {{input type="text" valueBinding="newAlias"}}<br>
+  price: {{input type="text" valueBinding="newPrice"}}<br>
+  {{#view view.DragDrop}}
+    {{#if uploadStatus.error}}
+        <div class="error">An error occurred during the upload process. Please try again later.</div>
+    {{/if}}
+
+    {{#each controller.validFiles}}
+
+        <div {{bind-attr class="className :file"}}>
+            {{name}}
+            <a class="remove" {{action "deleteFile" this}}>Discard.</a>
+            {{view view.ImagePreview imageBinding="this"}}
+        </div>
+
+    {{/each}}
+
+    {{view view.SingleInput}}
+  {{/view}}
+  <button class="btn" {{action "uploadAllFiles"}}>Upload All</button>
+  <button {{action 'submit'}}>Submit</button>
+</form>

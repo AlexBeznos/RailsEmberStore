@@ -17,8 +17,9 @@ module API
       # POST /Products
       # POST /Products.json
       def create
-        @product = Product.new(tl_params)
 
+        puts params
+        @product = Product.new(tl_params)
         if @product.save
     	    if params[:optional]
 	        	@product.create_product(params[:optional])
