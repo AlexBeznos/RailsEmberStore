@@ -1,8 +1,4 @@
 module Products
-  def create_product(params)
-    self.add_images(params[:images]) if params[:images]
-    self.add_categories(params[:categories]) if params[:categories]
-  end
 
   def add_images(img_arr)
     require 'base64'
