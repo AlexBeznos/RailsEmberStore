@@ -1,6 +1,4 @@
 Store.AddProductController = Ember.Controller.extend(DropletController, {
-	useArray: true,
-	dropletUrl: 'api/products',
 	mimeTypes: ["image/gif", "image/jpeg", "image/pjpeg", 'image/png'],
 	didUploadFiles: function(response) {
         console.log(response);
@@ -20,7 +18,7 @@ Store.AddProductController = Ember.Controller.extend(DropletController, {
   proxiedItems: Ember.computed.mapBy('proxiedCheckedCategory', 'content.id'),
 	actions: {
 		submit: function() {
-
+      console.log(this.get('id'));
 			var defaultOptions = {
                 fileSizeHeader: true,
                 useArray: true

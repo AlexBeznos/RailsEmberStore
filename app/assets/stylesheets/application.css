@@ -68,20 +68,18 @@ div.droppable div.file img {
     height: 100px;
 }
 
-div.droppable div.file a.remove {
+
+div.droppable div.file .destroy{
     position: absolute;
     background-color: rgba(0, 0, 0, .45);
-    bottom: 0;
-    left: 0;
-    width: 100%;
+    width: 15px;
     height: 20px;
-    line-height: 20px;
-    color: white;
-    font-family: "Lato", sans-serif;
-    padding: 0 6px;
-    font-weight: 100;
-    z-index: 30001;
+    padding: 2px;
+    right: 0;
+    top: 0;
     cursor: pointer;
+    color: white;
+    z-index: 30001;
 }
 
 div.droppable input.files {

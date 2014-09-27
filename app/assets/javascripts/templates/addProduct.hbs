@@ -17,13 +17,13 @@
 
         <div {{bind-attr class="className :file"}}>
             {{name}}
-            <a class="remove" {{action "deleteFile" this}}>Discard.</a>
+            <a class="destroy" {{action "deleteFile" this}}>X</a>
             {{view view.ImagePreview imageBinding="this"}}
         </div>
 
     {{/each}}
 
-    {{view view.SingleInput}}
+    {{view view.SingleInput}}<br>
   {{/view}}
   <button {{action 'submit'}}>Submit</button>
 </form>
