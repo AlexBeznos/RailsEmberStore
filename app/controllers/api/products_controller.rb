@@ -58,6 +58,7 @@ module API
       # DELETE /Products/1.json
       def destroy
         @product = Product.find(params[:id])
+        @product.delete_images
         @product.destroy
 
         head :no_content

@@ -18,4 +18,10 @@ module Products
       self.categories << category
     end
   end
+
+  def delete_images
+    self.images.each do |image|
+      File.delete(image.path)
+    end
+  end
 end
