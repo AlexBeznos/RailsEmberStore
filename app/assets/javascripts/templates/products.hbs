@@ -1,7 +1,7 @@
 <h1>Products</h1>
 <ul>
-	{{#each}}
-		<li>{{name}}</li>
+	{{#each itemController='product'}}
+		<li>{{name}} - <button {{action 'destroy'}}>DELETE</button></li>
 		<ul>
 			{{#each category_ids}}
 				<li>{{name}}</li>

@@ -59,7 +59,6 @@ Store.AddProductController = Ember.Controller.extend(DropletController, {
           processData: false,
           contentType: false,
           success: function(res) {
-            
             Ember.$.ajax({
               url: 'api/products',
               type: 'POST',
@@ -67,7 +66,7 @@ Store.AddProductController = Ember.Controller.extend(DropletController, {
               processData: false,
               contentType: false,
               success: function(res) {
-                controller.controllerFor('products').send('openForm')
+                location.reload();
               },
               error: function(res) {
                 console.log(res)
