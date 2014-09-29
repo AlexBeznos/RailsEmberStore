@@ -1,13 +1,12 @@
 module Products
 
   def add_images(img_arr)
-    require 'base64'
     img_arr.each do |hash|
-      name = Base64.encode64(hash.original_filename) + File.extname(hash.original_filename)
-      directory = "public/images"
+      name = make_unique(File.extname(hash.original_filename))
+      directory = "app/assets/images"
       path = File.join(directory, name)
       File.open(path, "wb") { |f| f.write(hash.read) }
-      Product.last.images << Image.create(path: path)
+      Product.last.images << Image.create(path: '/' + File.join('assets', name))
     end
   end
 
@@ -21,7 +20,22 @@ module Products
 
   def delete_images
     self.images.each do |image|
-      File.delete(image.path)
+      match = image.path.scan(/\w+\.\w+$/)
+      path = Rails.root + 'app/assets/images/' + match[0]
+      File.delete(path)
     end
+  end
+
+  private
+  def make_unique(extension)
+    require 'securerandom'
+    name = SecureRandom.hex(10) + extension
+    dir = "app/assets/images"
+    path = File.join(dir, name)
+    while File.exist?(path)
+      name =  SecureRandom.hex(10) + extension
+      path = File.join(dir, name)
+    end
+    name
   end
 end

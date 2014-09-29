@@ -18,7 +18,6 @@ Store.AddProductController = Ember.Controller.extend(DropletController, {
   proxiedItems: Ember.computed.mapBy('proxiedCheckedCategory', 'content.id'),
 	actions: {
 		submit: function() {
-      console.log(this.get('id'));
 			var defaultOptions = {
                 fileSizeHeader: true,
                 useArray: true

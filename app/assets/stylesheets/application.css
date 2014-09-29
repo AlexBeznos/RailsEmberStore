@@ -109,3 +109,8 @@ div.droppable:hover div.file:hover {
     -moz-transform: scale(1.1);
     -webkit-transform: scale(1.1);
 }
+
+div.image {
+    width: 100px;
+    height: 100px;
+}

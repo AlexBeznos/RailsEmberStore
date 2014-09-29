@@ -7,6 +7,11 @@
 				<li>{{name}}</li>
 			{{/each}}
 		</ul>
+		{{#each image_ids}}
+			<div class="image"><img {{bind-attr src=path}}></div>
+		{{/each}}
+	{{else}}
+		It is no products yet!
 	{{/each}}
 </ul>
 

@@ -10,17 +10,9 @@ describe API::ProductsController, :type => :controller do
 			@cat3.subcategories << @cat2
 			@cat4.subcategories << @cat3
 			params = {
-				optional: {
-					categories: [@cat1.id, @cat2.id],
-					images: [{
-								img: fixture_file_upload('images/rabby1.jpg','image/jpeg'),
-								main: true
-							},
-							{
-								img: fixture_file_upload('images/rabby1.jpg','image/jpeg'),
-								main: false
-					        }]
-				},
+				categories: @cat1.id.to_s + ', ' + @cat2.id.to_s,
+				images: [fixture_file_upload('images/rabby1.jpg','image/jpeg'),
+						fixture_file_upload('images/rabby2.jpg','image/jpeg')],
 				product: {
 					name: "iphone 4s",
 					price: 4.55,
