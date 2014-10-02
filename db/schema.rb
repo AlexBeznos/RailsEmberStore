@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20140918191158) do
     t.string   "alias"
     t.integer  "position"
     t.integer  "menu"
-    t.boolean  "status"
+    t.boolean  "status",             default: true
     t.integer  "parent_category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20140918191158) do
 
   create_table "images", force: true do |t|
     t.string   "path"
-    t.boolean  "main"
+    t.boolean  "main",       default: false
     t.integer  "product_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -53,12 +53,11 @@ ActiveRecord::Schema.define(version: 20140918191158) do
 
   create_table "products", force: true do |t|
     t.string   "name"
-    t.integer  "category_id"
     t.decimal  "price"
     t.string   "alias"
-    t.boolean  "active_on_storage"
+    t.boolean  "active_on_storage", default: true
     t.integer  "on_storage"
-    t.boolean  "active"
+    t.boolean  "active",            default: true
     t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"
