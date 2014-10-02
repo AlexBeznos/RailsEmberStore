@@ -1,4 +1,4 @@
-<form>
+<form id="addProduct">
   name: {{input type="text" valueBinding="newName"}}<br>
   alias: {{input type="text" valueBinding="newAlias"}}<br>
   price: {{input type="text" valueBinding="newPrice"}}<br>
@@ -8,22 +8,27 @@
       <li>{{content.name}}{{input type="checkbox" class="pull-right" checked=checked}}</li>
     {{/each}}
   </ul>
-  {{#view view.DragDrop}}
-    {{#if uploadStatus.error}}
-        <div class="error">An error occurred during the upload process. Please try again later.</div>
-    {{/if}}
+  Add image: <input type="file" class="form-control" name="images[]" /><br>
+  <button {{action 'moreImages'}}>{{#if addImages}}Close form{{else}}Open form{{/if}}</button><br>
+  {{#if addImages}}
+    Add another images: <br>
+    {{#view view.DragDrop}}
+      {{#if uploadStatus.error}}
+          <div class="error">An error occurred during the upload process. Please try again later.</div>
+      {{/if}}
 
-    {{#each controller.validFiles}}
+      {{#each controller.validFiles}}
 
-        <div {{bind-attr class="className :file"}}>
-            {{name}}
-            <a class="destroy" {{action "deleteFile" this}}>X</a>
-            {{view view.ImagePreview imageBinding="this"}}
-        </div>
+          <div {{bind-attr class="className :file"}}>
+              {{name}}
+              <a class="destroy" {{action "deleteFile" this}}>X</a>
+              {{view view.ImagePreview imageBinding="this"}}
+          </div>
 
-    {{/each}}
+      {{/each}}
 
-    {{view view.SingleInput}}<br>
-  {{/view}}
+      {{view view.SingleInput}}<br>
+    {{/view}}
+  {{/if}}<br>
   <button {{action 'submit'}}>Submit</button>
 </form>

@@ -16,6 +16,7 @@ Store.AddProductController = Ember.Controller.extend(DropletController, {
   }),
   proxiedCheckedCategory: Ember.computed.filterBy('proxiedCategory', 'checked', true),
   proxiedItems: Ember.computed.mapBy('proxiedCheckedCategory', 'content.id'),
+  addImages: false,
 	actions: {
 		submit: function() {
 			var defaultOptions = {
@@ -38,9 +39,10 @@ Store.AddProductController = Ember.Controller.extend(DropletController, {
         this.set('uploadStatus.error', false);
 
 
-        var formDataImages = new FormData();
+        var formDataImages = new FormData(document.getElementById("addProduct"));
         var fieldName = 'images[]';
         Ember.EnumerableUtils.forEach(this.get('validFiles'), function(file) {
+            console.log(file);
             formDataImages.append(fieldName, file.file);
         }, this);
 
@@ -75,6 +77,10 @@ Store.AddProductController = Ember.Controller.extend(DropletController, {
           }
           })
       });
-		}
+		},
+    moreImages: function() {
+      this.toggleProperty('addImages');
+      this.send('clearAllFiles');
+    }
 	}
 })
