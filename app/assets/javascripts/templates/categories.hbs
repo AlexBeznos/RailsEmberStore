@@ -9,9 +9,9 @@ THis is categoires: <br>
 </ul>
 <button {{action 'openForm'}}>{{#if isForm}}Close{{else}}Open{{/if}}</button>
 {{#if isForm}} 
-  <form>
-    Name: {{input type="text" valueBinding="newName"}}<br>
-    Aliase: {{input type="text" valueBinding="newAlias"}}<br>
+  <form id="createCategory">
+    Name*: {{input type="text" valueBinding="newName"}}<br>
+    Aliase*: {{input type="text" valueBinding="newAlias"}}<br>
     Position: {{input type="text" valueBinding="newPosition"}}<br>
     Menu: {{input type="text" valueBinding="newMenu"}}<br>
     Status: {{input type="checkbox" valueBinding="newStatus"}}<br>
@@ -20,6 +20,7 @@ THis is categoires: <br>
                               optionValuePath="content.id"
                               optionLabelPath="content.name"
                               value=parentID
+                              prompt="Виберите категорию"
                       }}<br>
     <button {{action 'createCategory'}}>Submit</button>
   </form>
