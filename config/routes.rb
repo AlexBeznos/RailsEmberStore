@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :admins
-  get 'ember/index'
+  get 'administration' => 'ember#administration'
   root to: "ember#index"
   namespace "api" do
     resources :categories

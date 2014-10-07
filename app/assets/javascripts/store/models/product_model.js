@@ -1,4 +1,4 @@
-Admin.Product = DS.Model.extend({
+Store.Product = DS.Model.extend({
 	name: DS.attr(),
 	alias: DS.attr(),
 	price: DS.attr('number'),

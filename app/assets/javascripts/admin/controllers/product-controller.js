@@ -1,4 +1,4 @@
-Store.ProductController = Ember.ObjectController.extend({
+Admin.ProductController = Ember.ObjectController.extend({
 	actions: {
 		destroy: function() {
 			var product = this.get('model');

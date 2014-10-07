@@ -1,4 +1,4 @@
-Admin.Category = DS.Model.extend({
+Store.Category = DS.Model.extend({
 	name: DS.attr(),
 	alias: DS.attr(),
 	parent_category_id: DS.attr('number'),

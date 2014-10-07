@@ -1,5 +1,4 @@
 //= require ./store
-//= require_tree ./droplet
 //= require_tree ./mixins
 //= require_tree ./models
 //= require_tree ./controllers
@@ -11,12 +10,8 @@
 //= require ./router
 //= require_self
 
-Admin.Store = DS.Store.extend({
+Store.Store = DS.Store.extend({
 
-});
-
-Admin.Router.reopen({    
-  rootURL: '/'
 });
 
 // Override the default adapter with the `DS.ActiveModelAdapter` which

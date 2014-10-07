@@ -1,4 +1,4 @@
-Store.Subcategory = DS.Model.extend({
+Admin.Subcategory = DS.Model.extend({
 	name: DS.attr(),
 	alias: DS.attr(),
 	parent_category_id: DS.attr('number'),

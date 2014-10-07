@@ -1,4 +1,4 @@
-Store.CategoryController = Ember.ObjectController.extend({
+Admin.CategoryController = Ember.ObjectController.extend({
 	parent: function() {
 		if(this.get('parent_category_id')) {
 			return false

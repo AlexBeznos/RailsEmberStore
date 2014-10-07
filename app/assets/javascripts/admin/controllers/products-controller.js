@@ -1,4 +1,4 @@
-Store.ProductsController = Ember.ArrayController.extend({
+Admin.ProductsController = Ember.ArrayController.extend({
 	isForm: false,
 	actions: {
 		openForm: function() {

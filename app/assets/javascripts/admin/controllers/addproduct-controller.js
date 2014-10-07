@@ -1,4 +1,4 @@
-Store.AddProductController = Ember.Controller.extend(DropletController, {
+Admin.AddProductController = Ember.Controller.extend(DropletController, {
 	mimeTypes: ["image/gif", "image/jpeg", "image/pjpeg", 'image/png'],
 	didUploadFiles: function(response) {
         console.log(response);

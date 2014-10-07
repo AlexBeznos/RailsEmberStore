@@ -1,3 +1,3 @@
-Store.AddProductView = Ember.View.extend({
+Admin.AddProductView = Ember.View.extend({
 	DragDrop: DropletView.extend()
 })

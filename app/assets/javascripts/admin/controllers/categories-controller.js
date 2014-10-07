@@ -1,4 +1,4 @@
-Store.CategoriesController = Ember.ArrayController.extend({
+Admin.CategoriesController = Ember.ArrayController.extend({
 	isForm: false,
 	parentID: 0,
 	actions: {
