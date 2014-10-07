@@ -7,6 +7,7 @@ gem 'jquery-rails'
 gem 'active_model_serializers', "0.8.2"
 gem 'spring', :group => :development
 gem 'uglifier'
+gem 'devise'
 gem 'rails_config'
 
 group :development, :test do

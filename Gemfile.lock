@@ -34,6 +34,7 @@ GEM
       ember-source
       execjs
       handlebars-source
+    bcrypt (3.1.7)
     builder (3.2.2)
     capybara (2.4.1)
       mime-types (>= 1.16)
@@ -44,6 +45,12 @@ GEM
     celluloid (0.16.0)
       timers (~> 4.0.0)
     coderay (1.1.0)
+    devise (3.3.0)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 3.2.6, < 5)
+      thread_safe (~> 0.1)
+      warden (~> 1.2.3)
     diff-lcs (1.2.5)
     ember-data-source (1.0.0.beta.9)
       ember-source
@@ -105,6 +112,7 @@ GEM
     multi_json (1.10.1)
     nokogiri (1.6.3.1)
       mini_portile (= 0.6.0)
+    orm_adapter (0.5.0)
     pg (0.17.1)
     phantomjs (1.9.7.1)
     polyglot (0.3.5)
@@ -193,6 +201,8 @@ GEM
     uglifier (2.5.3)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    warden (1.2.3)
+      rack (>= 1.0)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 
@@ -202,6 +212,7 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers (= 0.8.2)
   capybara
+  devise
   ember-rails
   factory_girl_rails
   guard-rspec
