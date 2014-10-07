@@ -1,0 +1,1 @@
+Store::Application.config.handlebars.templates_root = 'admin/templates/'

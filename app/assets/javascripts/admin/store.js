@@ -7,12 +7,16 @@
 //= require_tree ./helpers
 //= require_tree ./components
 //= require_tree ./templates
-//= require ./router
 //= require_tree ./routes
+//= require ./router
 //= require_self
 
 Store.Store = DS.Store.extend({
 
+});
+
+Store.Router.reopen({    
+  rootURL: '/'
 });
 
 // Override the default adapter with the `DS.ActiveModelAdapter` which
