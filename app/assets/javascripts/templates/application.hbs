@@ -1,2 +1,31 @@
-Hello everyone<br><img src='/assets/names.jpg'>
-{{ outlet }}
+<header>
+	<div class="support">Служба поддержки : 099-999-99-99</div>
+	<div class="logo">
+		<a href="#"><img src="images/logo.png" alt="" /></a>
+	</div>
+	<div class="buttons">
+		<a href="#"><div>Настройки <img src="images/config.png" alt="" /></div></a>
+		<a href="#"><div>User : admin <img src="images/config.png" alt="" /></div></a>
+		<a href="#"><div>Выход <img src="images/config.png" alt="" /></div></a>
+	</div>
+</header>
+<div class="content">
+	<div class="menu">
+		<ul>
+			<li>{{#link-to 'categories'}}Категории{{/link-to}}</li>
+			<li>{{#link-to 'products'}}Товары{{/link-to}}</li>  
+			<li><a href="zakazi.html">Заказы</a></li> 
+			<li><a href="users.html">Пользователи</a></li>  
+			<li><a href="stat.html">Статистика</a></li> 
+		</ul>
+	</div>
+
+
+	{{ outlet }}
+</div>
+<footer>
+	<div class="logo_footer">
+		<a href="#"><img src="images/logo_footer.png" alt="" /></a>
+	</div>
+	<div class="copyright"><a href="#">Rabby 2014©</a></div>
+</footer>
