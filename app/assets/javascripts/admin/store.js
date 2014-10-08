@@ -15,10 +15,6 @@ Admin.Store = DS.Store.extend({
 
 });
 
-Admin.Router.reopen({    
-  rootURL: '/'
-});
-
 // Override the default adapter with the `DS.ActiveModelAdapter` which
 // is built to work nicely with the ActiveModel::Serializers gem.
 DS.RESTAdapter.reopen({
