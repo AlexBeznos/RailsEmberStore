@@ -5,6 +5,22 @@
       <div class="edit">Редактировать</div>
       <div class="delete">Удалить</div>
   </div>
+  {{#if isForm}} 
+  <form class="category_form">
+    <div>Название:</div> {{input type="text" valueBinding="newName"}}<br>
+    <div>URL:</div> {{input type="text" valueBinding="newAlias"}}<br>
+    <div>Cортировка:</div> {{input type="text" valueBinding="newPosition"}}<br>
+    <div>Меню:</div> {{input type="text" valueBinding="newMenu"}}<br>
+    <div>Активность:</div> {{input type="checkbox" valueBinding="newStatus"}}<br>
+    <div>Родительская категория:</div> {{view Ember.Select
+                              content=content
+                              optionValuePath="content.id"
+                              optionLabelPath="content.name"
+                              value=parentID
+                      }}<br>
+    <div class="add addempty" {{action 'createCategory'}}>Сохранить</div>
+  </form>
+{{/if}}
   <div class="row">
     <div class="checkbox"><input type="checkbox"></div>
     <div class="number">#</div>
@@ -35,19 +51,3 @@
 
 <ul>
 </ul>
-{{#if isForm}} 
-  <form class="category_form">
-    <div>Название:</div> {{input type="text" valueBinding="newName"}}<br>
-    <div>URL:</div> {{input type="text" valueBinding="newAlias"}}<br>
-    <div>Cортировка:</div> {{input type="text" valueBinding="newPosition"}}<br>
-    <div>Меню:</div> {{input type="text" valueBinding="newMenu"}}<br>
-    <div>Активность:</div> {{input type="checkbox" valueBinding="newStatus"}}<br>
-    <div>Родительская категория:</div> {{view Ember.Select
-                              content=content
-                              optionValuePath="content.id"
-                              optionLabelPath="content.name"
-                              value=parentID
-                      }}<br>
-    <div class="add addempty" {{action 'createCategory'}}>Сохранить</div>
-  </form>
-{{/if}}
