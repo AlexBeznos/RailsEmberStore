@@ -1,22 +1,44 @@
-<h1>Products</h1>
-<ul>
-	{{#each itemController='product'}}
-		<li>{{name}} - <button {{action 'destroy'}}>DELETE</button></li>
-		<ul>
-			{{#each category_ids}}
-				<li>{{name}}</li>
-			{{/each}}
-		</ul>
-		{{#each image_ids}}
-			<div class="image"><img {{bind-attr src=path}}>{{#if main}}This is main!{{/if}}</div>
+<div class="last">
+	<p>Товары:</p>
+	<div class="addedit">
+      <div class="add" {{action 'openForm'}}>{{#if isForm}}Закрыть{{else}}Добавить{{/if}}</div>
+      <div class="edit">Редактировать</div>
+      <div class="delete">Удалить</div>
+  	</div>
+  	{{#if isForm}}
+  		{{render 'addProduct'}}
+	{{/if}}
+  	<div class="row">
+	    <div class="checkbox"><input type="checkbox"></div>
+	    <div class="number">#</div>
+	    <div class="name_product">Название</div>
+	    <div class="url_product">url</div>
+	    <div class="category_product">Категория</div>
+	    <div class="price_product">Цена</div>
+	    <div class="active_on_storage">Наличие на складе</div>
+	    <div class="on_storage">Кол-во на складе</div>
+	    <div class="active_product">Активность</div>
+	    <div class="sort_product">Сортировка</div>
+    </div>
+    {{#each itemController='product'}}
+    <div class="row">
+	    <div class="checkbox"><input type="checkbox"></div>
+	    <div class="number">#</div>
+	    <div class="name_product">{{name}}</div>
+	    <div class="url_product">url</div>
+	    <div class="category_product">{{#each category_ids}}{{name}}{{/each}}</div>
+	    <div class="price_product">Цена</div>
+	    <div class="active_on_storage">Наличие на складе</div>
+	    <div class="on_storage">Кол-во на складе</div>
+	    <div class="active_product">Активность</div>
+	    <div class="sort_product">Сортировка</div>
+	    <div class="destroy" {{action 'destroy'}}><a>X</a></div>
+	    {{#each image_ids}}
+			<div class="image"><img {{bind-attr src=path}}></div>
 		{{/each}}
+	</div>
 	{{else}}
-		It is no products yet!
+		<br />
+		<p class="empty">У вас нет не одного товара!</p><div class="add addempty" {{action 'openForm'}}>Добавьте их!</div>
 	{{/each}}
-</ul>
-
-<button {{action 'openForm'}}>{{#if isForm}}Close form{{else}}Open form{{/if}}</button>
-<br>
-{{#if isForm}}
-  {{render 'addProduct'}}
-{{/if}}
+</div>

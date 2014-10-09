@@ -1,34 +1,28 @@
-<form id="addProduct">
-  name: {{input type="text" valueBinding="newName"}}<br>
-  alias: {{input type="text" valueBinding="newAlias"}}<br>
-  price: {{input type="text" valueBinding="newPrice"}}<br>
-  category: <br>
-  <ul>
-    {{#each proxiedCategory}}
-      <li>{{content.name}}{{input type="checkbox" class="pull-right" checked=checked}}</li>
-    {{/each}}
-  </ul>
-  Add image: <input type="file" class="form-control" name="images[]" /><br>
-  <button {{action 'moreImages'}}>{{#if addImages}}Close form{{else}}Open form{{/if}}</button><br>
-  {{#if addImages}}
-    Add another images: <br>
-    {{#view view.DragDrop}}
-      {{#if uploadStatus.error}}
-          <div class="error">An error occurred during the upload process. Please try again later.</div>
-      {{/if}}
+<form class="category_form">
+  <div>Название</div> {{input type="text" valueBinding="newName"}}<br>
+  <div>URL:</div> {{input type="text" valueBinding="newAlias"}}<br>
+  <div>Цена:</div> {{input type="text" valueBinding="newPrice"}}<br>
+  <div>Категория:</div> 
+  {{#each proxiedCategory}}
+    {{content.name}}{{input type="checkbox" class="pull-right" checked=checked}}
+  {{/each}}
+  {{#view view.DragDrop}}
+  {{#if uploadStatus.error}}
+    <div class="error">An error occurred during the upload process. Please try again later.</div>
+  {{/if}}
 
-      {{#each controller.validFiles}}
+  {{#each controller.validFiles}}
 
-          <div {{bind-attr class="className :file"}}>
-              {{name}}
-              <a class="destroy" {{action "deleteFile" this}}>X</a>
-              {{view view.ImagePreview imageBinding="this"}}
-          </div>
+    <div {{bind-attr class="className :file"}}>
+      {{name}}
+      <div class="destroy" {{action "deleteFile" this}}>
+        <a>X</a>
+      </div>
+      {{view view.ImagePreview imageBinding="this"}}
+    </div>
 
-      {{/each}}
+  {{/each}}
 
-      {{view view.SingleInput}}<br>
-    {{/view}}
-  {{/if}}<br>
-  <button {{action 'submit'}}>Submit</button>
+  {{view view.SingleInput}}{{/view}}
+  <div class="add addempty" {{action 'submit'}}>Сохранить</div>
 </form>
