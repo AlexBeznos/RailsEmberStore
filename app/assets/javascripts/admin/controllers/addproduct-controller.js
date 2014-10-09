@@ -30,8 +30,6 @@ Admin.AddProductController = Ember.Controller.extend(DropletController, {
             }),
             controller = this;
 
-        console.log(this.get(images));
-
         if (this.get('validFiles').length === 0) {
             return false;
         };
