@@ -25,7 +25,9 @@ module Products
     self.images.each do |image|
       match = image.path.scan(/\w+\.\w+$/)
       path = Rails.root + 'app/assets/images/' + match[0]
-      File.delete(path)
+      if File.exist?(path)
+        File.delete(path)
+      end
     end
   end
 
