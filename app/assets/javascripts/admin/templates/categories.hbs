@@ -1,27 +1,54 @@
-THis is categoires: <br>
+<div class="last">
+  <p>Категории:</p>
+  <div class="addedit">
+      <div class="add" {{action 'openForm'}}>{{#if isForm}}Закрыть{{else}}Добавить{{/if}}</div>
+      <div class="edit">Редактировать</div>
+      <div class="delete">Удалить</div>
+  </div>
+  <div class="row">
+    <div class="checkbox"><input type="checkbox"></div>
+    <div class="number">#</div>
+    <div class="name_category">Название</div>
+    <div class="url">url</div>
+    <div class="parent">Родительская категория</div>
+    <div class="menu_category">Меню</div>
+    <div class="sort_category">Сортировка</div>
+  </div>
+  {{#each itemController='category'}}
+  {{#if parent}}
+  <div class="row">
+    <div class="checkbox"><input type="checkbox"></div>
+    <div class="number">#</div>
+    <div class="name_category">{{name}}</div>
+    <div class="url">{{alias}}</div>
+    <div class="parent">-</div>
+    <div class="menu_category">{{menu}}</div>
+    <div class="sort_category">{{position}}</div>
+    <div class="destroy" {{action 'destroy'}}><a>X</a></div>
+  </div>
+  {{render 'subcategories' subcategory_ids}}
+  {{/if}}
+  {{else}}
+  <br />
+  <p class="empty">У Вас нет ни одной категории товаров.</p> <div class="add addempty" {{action 'openForm'}}>{{#if isForm}}Закрыть{{else}}Добавьте их{{/if}}</div>
+  {{/each}}
+
 <ul>
-	{{#each itemController='category'}}
-	    {{#if parent}}
-	  		<li>{{name}} - <a {{action 'destroy'}}>Delete</a></li>
-	  		{{render 'subcategories' subcategory_ids}}
-	    {{/if}}
-	{{/each}}
 </ul>
-<button {{action 'openForm'}}>{{#if isForm}}Close{{else}}Open{{/if}}</button>
 {{#if isForm}} 
-  <form id="createCategory">
-    Name*: {{input type="text" valueBinding="newName"}}<br>
-    Aliase*: {{input type="text" valueBinding="newAlias"}}<br>
-    Position: {{input type="text" valueBinding="newPosition"}}<br>
-    Menu: {{input type="text" valueBinding="newMenu"}}<br>
-    Status: {{input type="checkbox" valueBinding="newStatus"}}<br>
-    Parent category: {{view Ember.Select
+  <form class="category_form">
+    <div>Название:</div> {{input type="text" valueBinding="newName"}}<br>
+    <div>URL:</div> {{input type="text" valueBinding="newAlias"}}<br>
+    <div>Cортировка:</div> {{input type="text" valueBinding="newPosition"}}<br>
+    <div>Меню:</div> {{input type="text" valueBinding="newMenu"}}<br>
+    <div>Активность:</div> {{input type="checkbox" valueBinding="newStatus"}}<br>
+    <div>Родительская категория:</div> {{view Ember.Select
                               content=content
                               optionValuePath="content.id"
                               optionLabelPath="content.name"
                               value=parentID
                               prompt="Виберите категорию"
                       }}<br>
-    <button {{action 'createCategory'}}>Submit</button>
+    <div class="add addempty" {{action 'createCategory'}}>Сохранить</div>
   </form>
 {{/if}}
