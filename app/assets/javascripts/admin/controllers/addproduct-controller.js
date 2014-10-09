@@ -27,13 +27,14 @@ Admin.AddProductController = Ember.Controller.extend(DropletController, {
                 name: this.get('newName'),
                 alias: this.get('newAlias'),
                 price: this.get('newPrice')
-            })
+            }),
             controller = this;
 
+        console.log(this.get(images));
 
         if (this.get('validFiles').length === 0) {
             return false;
-        }
+        };
         
         this.set('uploadStatus.uploading', true);
         this.set('uploadStatus.error', false);
@@ -42,7 +43,6 @@ Admin.AddProductController = Ember.Controller.extend(DropletController, {
         var formDataImages = new FormData(document.getElementById("addProduct"));
         var fieldName = 'images[]';
         Ember.EnumerableUtils.forEach(this.get('validFiles'), function(file) {
-            console.log(file);
             formDataImages.append(fieldName, file.file);
         }, this);
 

@@ -8,4 +8,4 @@ Admin.Product = DS.Model.extend({
 	position: DS.attr('number'),
 	image_ids: DS.hasMany('image'),
 	category_ids: DS.hasMany('category')
-})
+});
