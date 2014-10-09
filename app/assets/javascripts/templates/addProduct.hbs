@@ -1,13 +1,12 @@
-<form>
-  name: {{input type="text" valueBinding="newName"}}<br>
-  alias: {{input type="text" valueBinding="newAlias"}}<br>
-  price: {{input type="text" valueBinding="newPrice"}}<br>
-  category: <br>
-  <ul>
+
+<form class="category_form">
+  <div>Название</div> {{input type="text" valueBinding="newName"}}<br>
+  <div>URL:</div> {{input type="text" valueBinding="newAlias"}}<br>
+  <div>Цена:</div> {{input type="text" valueBinding="newPrice"}}<br>
+  <div>Категория:</div> 
     {{#each proxiedCategory}}
-      <li>{{content.name}}{{input type="checkbox" class="pull-right" checked=checked}}</li>
+      {{content.name}}{{input type="checkbox" class="pull-right" checked=checked}}
     {{/each}}
-  </ul>
   {{#view view.DragDrop}}
     {{#if uploadStatus.error}}
         <div class="error">An error occurred during the upload process. Please try again later.</div>
@@ -17,13 +16,13 @@
 
         <div {{bind-attr class="className :file"}}>
             {{name}}
-            <a class="destroy" {{action "deleteFile" this}}>X</a>
+            <div class="destroy" {{action "deleteFile" this}}><a>X</a></div>
             {{view view.ImagePreview imageBinding="this"}}
         </div>
 
     {{/each}}
 
-    {{view view.SingleInput}}<br>
+    {{view view.SingleInput}}
   {{/view}}
-  <button {{action 'submit'}}>Submit</button>
+  <div class="add addempty" {{action 'submit'}}>Сохранить</div>
 </form>

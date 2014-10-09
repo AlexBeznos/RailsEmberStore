@@ -129,7 +129,7 @@ header{
     width:960px;
     margin:auto;
     background:white;
-    margin-bottom:20px;
+    padding-bottom:20px;
 }
 
 .menu {
@@ -428,7 +428,7 @@ footer{
     width:600px;
     margin:auto;
     margin-top:20px;
-    margin-bottom:20px;
+    padding-bottom:20px;
 }
 
 .category_form div{
@@ -440,6 +440,38 @@ footer{
 .category_form input{
     position:relative;
     top:-1px;
+}
+
+.name_product{
+    width:12%;
+}
+
+.url_product{
+width:12%;
+}
+
+.category_product{
+    width:10%;
+}
+
+.price_product{
+    width:10%;
+}
+
+.active_on_storage{
+    width:12%;
+}
+
+.on_storage{
+    width:10%;
+}
+
+.active_product{
+    width:10%;
+}
+
+.sort_product{
+    width:9%;
 }
 
 ul.counts {
