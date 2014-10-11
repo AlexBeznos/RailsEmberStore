@@ -15,7 +15,11 @@ Admin.LoginController = Ember.Controller.extend({
         console.log(response);
         if (response.session) {
           self.set('token', response.session.token);
-          self.transitionToRoute('index');
+          var attemptedTransition = self.get('attemptedTransition');
+          if (attemptedTransition) {
+            attemptedTransition.retry();
+            self.set('attemptedTransition', null);
+          }
         } else {
           self.set('errorMessage', response.errors.email);
         }

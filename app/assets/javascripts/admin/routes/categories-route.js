@@ -1,4 +1,4 @@
-Admin.CategoriesRoute = Ember.Route.extend({
+Admin.CategoriesRoute = Admin.AuthenticatedRoute.extend({
 	model: function() {
 		return this.store.find('category')
 	}
