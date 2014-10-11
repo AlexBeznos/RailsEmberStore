@@ -2,5 +2,6 @@
 
 Admin.Router.map(function() {
 	this.resource('categories'),
-	this.resource('products')
+	this.resource('products'),
+  this.route('login')
 });

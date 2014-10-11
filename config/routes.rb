@@ -7,6 +7,9 @@ Rails.application.routes.draw do
     resources :products
     resources :orders
     resources :images
+    devise_scope :admin do
+      resources :sessions, only: [:create, :destroy]
+    end
   end
 
 
