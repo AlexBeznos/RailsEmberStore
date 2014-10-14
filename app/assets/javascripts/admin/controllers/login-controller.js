@@ -18,25 +18,13 @@ Admin.LoginController = Ember.Controller.extend({
           if (attemptedTransition) {
             attemptedTransition.retry();
             self.set('attemptedTransition', null);
+          } else {
+            self.transitionTo('index')
           }
         } else {
           self.set('errorMessage', response.errors.email);
         }
       });
-	  },
-    logOut: function() {
-      var self = this,
-          token = this.get('token'),
-          id = token.substr(token.length - 1);
-
-      $.ajax({
-        url: '/api/sessions/' + id,
-        type: 'DELETE',
-        success: function(result) {
-          localStorage.removeItem('token');
-          location.reload();
-        }
-      });
-    }
+	  }
   }	
 });
