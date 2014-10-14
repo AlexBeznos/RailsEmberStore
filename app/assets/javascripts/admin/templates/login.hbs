@@ -3,6 +3,7 @@
     <h2>Log In</h2>
     {{input value=email type="text" placeholder="Username"}}
     {{input value=password type="password" placeholder="Password"}}
+    {{input type="checkbox" checked=rememberMe}}
     {{input class="btn" type="submit" value="Log In"}}
   </form>
   {{#if errorMessage}}
