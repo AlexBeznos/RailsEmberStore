@@ -3,12 +3,18 @@ Admin.IndexController = Ember.Controller.extend({
 		logOut: function() {
 	      var self = this,
 	          token = this.controllerFor('login').get('token'),
+	          subtoken = this.controllerFor('login').get('subToken'),
 	          id = token.substr(token.length - 1);
+
 	      $.ajax({
 	        url: '/api/sessions/' + id,
 	        type: 'DELETE',
 	        success: function(result) {
-	          localStorage.removeItem('token');
+	          if(subtoken) {
+	          	$.removeCookie('token');
+	          } else {
+	            localStorage.removeItem('token');
+	          };
 	          location.reload();
 	        }
 	      });

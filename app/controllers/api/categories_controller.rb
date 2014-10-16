@@ -42,10 +42,12 @@ module API
       # DELETE /categories/1.json
       def destroy
         @category = Category.find(params[:id])
+        @category.destroy_subcategories
         @category.destroy
 
         head :no_content
       end
+      
       private
       def tl_params
         params.require(:category).permit(:name, :alias, :position, :menu, :status, :parent_category_id)
