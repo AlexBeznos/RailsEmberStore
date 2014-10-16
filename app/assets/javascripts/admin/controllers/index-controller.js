@@ -1,8 +1,6 @@
 Admin.IndexController = Ember.Controller.extend({
 	actions: {
 		logOut: function() {
-			console.log(this.controllerFor('login').get('token'));
-			return false
 	      var self = this,
 	          token = this.controllerFor('login').get('token'),
 	          id = token.substr(token.length - 1);
