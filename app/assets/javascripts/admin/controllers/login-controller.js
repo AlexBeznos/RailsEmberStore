@@ -35,7 +35,7 @@ Admin.LoginController = Ember.Controller.extend({
       var self = this,
           data = this.getProperties('email', 'password');
 
-      $.post('/api/sessions', data).then(function(response) {
+      $.post('/api/administration/sessions', data).then(function(response) {
         if (response.session) {
           self.set('token', response.session.token + response.session.id);
 
