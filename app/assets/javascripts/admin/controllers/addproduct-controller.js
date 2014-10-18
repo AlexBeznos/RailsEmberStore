@@ -50,14 +50,14 @@ Admin.AddProductController = Ember.Controller.extend(DropletController, {
         
         product.save().then(function(product) {
           Ember.$.ajax({
-          url: 'api/products',
+          url: 'api/administration/products',
           type: 'POST',
           data: formDataImages,
           processData: false,
           contentType: false,
           success: function(res) {
             Ember.$.ajax({
-              url: 'api/products',
+              url: 'api/administration/products',
               type: 'POST',
               data: formDataCategories,
               processData: false,

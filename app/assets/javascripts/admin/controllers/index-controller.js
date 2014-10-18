@@ -5,7 +5,7 @@ Admin.IndexController = Ember.Controller.extend({
 	          id = token.substr(token.length - 1);
 
 	      $.ajax({
-	        url: '/api/sessions/' + id,
+	        url: '/api/administration/sessions/' + id,
 	        type: 'DELETE',
 	        success: function(result) {
 	          if(subtoken) {
