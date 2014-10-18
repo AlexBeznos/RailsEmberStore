@@ -3,12 +3,14 @@ Rails.application.routes.draw do
   get 'administration' => 'ember#administration'
   root to: "ember#index"
   namespace "api" do
-    resources :categories
-    resources :products
-    resources :orders
-    resources :images
-    devise_scope :admin do
-      resources :sessions, only: [:create, :destroy]
+    namespace "administration" do
+      resources :categories
+      resources :products
+      resources :orders
+      resources :images
+      devise_scope :admin do
+        resources :sessions, only: [:create, :destroy]
+      end
     end
   end
 
