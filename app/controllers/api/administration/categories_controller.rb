@@ -2,6 +2,7 @@ module API
   module Administration
     class CategoriesController < ApplicationController
     	 def index
+          puts response.headers
           @categories = Category.all
 
           render json: @categories
