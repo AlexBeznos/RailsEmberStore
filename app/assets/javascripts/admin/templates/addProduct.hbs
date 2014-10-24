@@ -1,13 +1,14 @@
 <form class="category_form" id="addProduct">
   <div id="warning"></div><br>
-  <div>Название</div> {{input type="text" valueBinding="newName"}}<br>
-  <div>URL:</div> {{input type="text" valueBinding="newAlias"}}<br>
+  <div>Название*:</div> {{input type="text" valueBinding="newName"}}<br>
+  <div>URL*:</div> {{input type="text" valueBinding="newAlias"}}<br>
   <div>Цена:</div> {{input type="text" valueBinding="newPrice"}}<br>
   <div>Категория:</div> 
   {{#each proxiedCategory}}
     {{content.name}}{{input type="checkbox" class="pull-right" checked=checked}}
   {{/each}}<br>
   <div>Главная картинка:</div> <input type="file" class="form-control" name="images[]" /><br>
+  <div>Другие картинки*:</div><br>
   {{#view view.DragDrop}}
   {{#if uploadStatus.error}}
     <div class="error">An error occurred during the upload process. Please try again later.</div>

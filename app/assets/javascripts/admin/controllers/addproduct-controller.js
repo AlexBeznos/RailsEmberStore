@@ -30,11 +30,11 @@ Admin.AddProductController = Ember.Controller.extend(DropletController, {	mimeTy
             controller = this
             warning = [];
 
-        if(this.get('newName') == undefined) {
-          warning.push('Нету названия продукта.');
+        if(Ember.isEmpty(this.get('newName'))) {
+          warning.push('Нет названия продукта.');
         };
-        if(this.get('newAlias') == undefined) {
-          warning.push('Нету алиаса продукта.');
+        if(Ember.isEmpty(this.get('newAlias'))) {
+          warning.push('Нет алиаса продукта.');
         };
         if (this.get('validFiles').length === 0) {
           warning.push('Вы не добавили не одной картинки.');
@@ -57,8 +57,6 @@ Admin.AddProductController = Ember.Controller.extend(DropletController, {	mimeTy
           } else {
             $('#warning').append(text);
           };
-          
-          return false;
         };
         
         this.set('uploadStatus.uploading', true);

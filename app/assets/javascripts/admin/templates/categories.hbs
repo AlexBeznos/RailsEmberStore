@@ -7,8 +7,9 @@
   </div>
   {{#if isForm}} 
   <form class="category_form">
-    <div>Название:</div> {{input type="text" valueBinding="newName"}}<br>
-    <div>URL:</div> {{input type="text" valueBinding="newAlias"}}<br>
+    <div id="warning"></div><br>
+    <div>Название*:</div> {{input type="text" valueBinding="newName"}}<br>
+    <div>URL*:</div> {{input type="text" valueBinding="newAlias"}}<br>
     <div>Cортировка:</div> {{input type="text" valueBinding="newPosition"}}<br>
     <div>Меню:</div> {{input type="text" valueBinding="newMenu"}}<br>
     <div>Активность:</div> {{input type="checkbox" valueBinding="newStatus"}}<br>
