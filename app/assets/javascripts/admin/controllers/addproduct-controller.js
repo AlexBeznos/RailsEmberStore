@@ -1,5 +1,4 @@
-Admin.AddProductController = Ember.Controller.extend(DropletController, {
-	mimeTypes: ["image/gif", "image/jpeg", "image/pjpeg", 'image/png'],
+Admin.AddProductController = Ember.Controller.extend(DropletController, {	mimeTypes: ["image/gif", "image/jpeg", "image/pjpeg", 'image/png'],
 	didUploadFiles: function(response) {
         console.log(response);
   },
@@ -28,10 +27,38 @@ Admin.AddProductController = Ember.Controller.extend(DropletController, {
                 alias: this.get('newAlias'),
                 price: this.get('newPrice')
             }),
-            controller = this;
+            controller = this
+            warning = [];
 
+        if(this.get('newName') == undefined) {
+          warning.push('Нету названия продукта.');
+        };
+        if(this.get('newAlias') == undefined) {
+          warning.push('Нету алиаса продукта.');
+        };
         if (this.get('validFiles').length === 0) {
-            return false;
+          warning.push('Вы не добавили не одной картинки.');
+        };
+        if(warning.length != 0) {
+          var text = '<ul>',
+              i = -1;
+
+          var adder = function(value) {
+            i++;
+            text = text.concat('<li>' + warning[i] + '</li>');
+            if(i < warning.length - 1) {
+              adder(value);
+            }
+          };
+          adder(i);
+          text = text.concat('</ul>');
+          if($('#warning').children().length == 1) {
+            $('#warning').children().replaceWith(text);
+          } else {
+            $('#warning').append(text);
+          };
+          
+          return false;
         };
         
         this.set('uploadStatus.uploading', true);
