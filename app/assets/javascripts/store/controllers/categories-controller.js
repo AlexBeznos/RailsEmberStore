@@ -1,0 +1,1 @@
+Store.CategoiresController = Ember.ArrayController.extend()
