@@ -32,35 +32,34 @@
     <div class="sort_category">Сортировка</div>
   </div>
   {{#each itemController='category'}}
-  {{#if parent}}
-  <div class="row">
-    <div class="checkbox"><input type="checkbox"></div>
-    <div class="number">#</div>
-    <div class="name_category">{{name}}</div>
-    <div class="url">{{alias}}</div>
-    <div class="parent">-</div>
-    <div class="menu_category">
-      {{#if menu}}
-        {{menu}}
-      {{else}}
-        -
-      {{/if}} 
-    </div>
-    <div class="sort_category">
-      {{#if position}}
-        {{position}}
-      {{else}}
-        -
-      {{/if}} 
-    </div>
-    <div class="destroy" {{action 'destroy'}}><a>X</a></div>
-  </div>
-  {{render 'subcategories' subcategory_ids}}
-  {{/if}}
+    {{#if parent}}
+      <div class="row">
+        <div class="checkbox"><input type="checkbox"></div>
+        <div class="number">#</div>
+        <div class="name_category">{{name}}</div>
+        <div class="url">{{alias}}</div>
+        <div class="parent">-</div>
+        <div class="menu_category">
+          {{#if menu}}
+            {{menu}}
+          {{else}}
+            -
+          {{/if}} 
+        </div>
+        <div class="sort_category">
+          {{#if position}}
+            {{position}}
+          {{else}}
+            -
+          {{/if}} 
+        </div>
+        <div class="destroy" {{action 'destroy'}}><a>X</a></div>
+      </div>
+      {{render 'subcategories' subcategory_ids}}
+    {{/if}}
   {{else}}
-  <br />
-  <p class="empty">У Вас нет ни одной категории товаров.</p> <div class="add addempty" {{action 'openForm'}}>{{#if isForm}}Закрыть{{else}}Добавьте их{{/if}}</div>
+    <br />
+    <p class="empty">У Вас нет ни одной категории товаров.</p> 
+    <div class="add addempty" {{action 'openForm'}}>{{#if isForm}}Закрыть{{else}}Добавьте их{{/if}}</div>
   {{/each}}
-
-<ul>
-</ul>
+</div>

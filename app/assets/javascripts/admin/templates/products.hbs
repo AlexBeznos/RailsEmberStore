@@ -25,13 +25,13 @@
 	    <div class="checkbox"><input type="checkbox"></div>
 	    <div class="number">#</div>
 	    <div class="name_product">{{name}}</div>
-	    <div class="url_product">url</div>
+	    <div class="url_product">{{alias}}</div>
 	    <div class="category_product">{{#each category_ids}}{{name}}{{/each}}</div>
-	    <div class="price_product">Цена</div>
-	    <div class="active_on_storage">Наличие на складе</div>
-	    <div class="on_storage">Кол-во на складе</div>
-	    <div class="active_product">Активность</div>
-	    <div class="sort_product">Сортировка</div>
+	    <div class="price_product">{{price}}</div>
+	    <div class="active_on_storage">{{active_on_storage}}</div>
+	    <div class="on_storage">{{on_storage}}</div>
+	    <div class="active_product">{{active}}</div>
+	    <div class="sort_product">{{position}}</div>
 	    <div class="destroy" {{action 'destroy'}}><a>X</a></div>
 	    {{#each image_ids}}
 			<div class="image"><img {{bind-attr src=path}}></div>
