@@ -39,8 +39,20 @@
     <div class="name_category">{{name}}</div>
     <div class="url">{{alias}}</div>
     <div class="parent">-</div>
-    <div class="menu_category">{{menu}}</div>
-    <div class="sort_category">{{position}}</div>
+    <div class="menu_category">
+      {{#if menu}}
+        {{menu}}
+      {{else}}
+        -
+      {{/if}} 
+    </div>
+    <div class="sort_category">
+      {{#if position}}
+        {{position}}
+      {{else}}
+        -
+      {{/if}} 
+    </div>
     <div class="destroy" {{action 'destroy'}}><a>X</a></div>
   </div>
   {{render 'subcategories' subcategory_ids}}
