@@ -1,0 +1,1 @@
+Store.CategoryController = Ember.Objectontroller.extend()

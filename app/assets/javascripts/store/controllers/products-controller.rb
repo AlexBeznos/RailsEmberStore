@@ -1,0 +1,1 @@
+Store.ProductsController = Ember.ArrayController.extend();

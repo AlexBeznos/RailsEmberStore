@@ -5,5 +5,6 @@ Store.Category = DS.Model.extend({
 	position: DS.attr('number'),
 	menu: DS.attr('number'),
 	status: DS.attr('boolean'),
-	subcategory_ids: DS.hasMany('category')
+	subcategory_ids: DS.hasMany('category', {async: true}),
+	product_ids: DS.hasMany('product', {async: true})
 });

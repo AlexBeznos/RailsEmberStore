@@ -1,5 +1,5 @@
-Store.CategoriesRoute = Ember.Route.extend({
-	model: function() {
-		return this.store.find('category')
+Store.CategoryRoute = Ember.Route.extend({
+	model: function(params) {
+		return this.store.find('category', params.category_id)
 	}
 })
