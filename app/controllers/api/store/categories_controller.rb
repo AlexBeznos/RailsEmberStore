@@ -11,7 +11,6 @@ module API
       # GET /categories/1.json
       def show
         @category = Category.find(params[:id])
-
         render json: @category
       end
     end

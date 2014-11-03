@@ -1,8 +1,13 @@
 module API
-  module Administration
+  module Store
     class ProductsController < ApplicationController
       def index
-        @products = Product.all
+        if params[:alias]
+          @products = Category.find_by(alias: params[:alias]).products
+        else
+          @products = Product.all
+        end
+
 
         render json: @products
       end
