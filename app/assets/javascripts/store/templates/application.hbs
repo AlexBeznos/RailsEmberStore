@@ -3,3 +3,14 @@ Hello everyone<br>
 {{#link-to 'categories'}}Categoires{{/link-to}}<br>
 {{#link-to 'products'}}Products{{/link-to}}<br>
 {{ outlet }}
+
+<div>
+  <h3>This is shopping cart!</h3>
+  <ul>
+    {{#each shoppingCart}}
+      <li>{{name}}</li>
+    {{else}}
+      <li>It is no products yet!</li>
+    {{/each}}
+  </ul>
+</div>

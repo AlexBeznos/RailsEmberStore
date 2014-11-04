@@ -1,1 +1,1 @@
-Store.CategoryController = Ember.Objectontroller.extend()
+Store.CategoryController = Ember.ArrayController.extend()
