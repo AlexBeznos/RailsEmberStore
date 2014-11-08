@@ -1,6 +1,8 @@
 Store.ApplicationController = Ember.Controller.extend({
 	shoppingCart: [],
-  cartChanged: function() {
-    console.log('boo')
-  }.observes('shoppingCart')
+  actions: {
+    delete: function(product) {
+      this.get('shoppingCart').removeObject(product);
+    } 
+  }
 });

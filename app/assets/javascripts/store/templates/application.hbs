@@ -8,7 +8,7 @@ Hello everyone<br>
   <h3>This is shopping cart!</h3>
   <ul>
     {{#each shoppingCart}}
-      <li>{{name}}</li>
+      <li>{{name}} - <button {{action 'delete' this}}>X</button></li>
     {{else}}
       <li>It is no products yet!</li>
     {{/each}}
