@@ -33,31 +33,21 @@
 		<div class="adress">Киев, ул. Киевская 8, кв. 10</div>
 		<div class="time">14:00 12.09.13</div>
 	</div>
+	{{#each}}
 	<div class="row">
-		<div class="number">1</div>
-		<div class="name">Николай</div>
-		<div class="sostav">Безнос игрушечный - 2 шт</div>
-		<div class="price">Сумма</div>
-		<div class="phone">099-999-99-99</div>
-		<div class="adress">Киев, ул. Киевская 8, кв. 10</div>
-		<div class="time">14:00 12.09.13</div>
+		<div class="number">{{id}}</div>
+		<div class="name">{{name}}</div>
+		<div class="sostav">
+			<ul>
+				{{#each product_ids}}
+					<li>{{name}}</li>
+				{{/each}}
+			</ul>
+		</div>
+		<div class="price">{{sum}}</div>
+		<div class="phone">{{phone}}</div>
+		<div class="adress">{{addres}}</div>
+		<div class="time">{{created_at}}</div>
 	</div>
-	<div class="row">
-		<div class="number">1</div>
-		<div class="name">Николай</div>
-		<div class="sostav">Безнос игрушечный - 2 шт</div>
-		<div class="price">Сумма</div>
-		<div class="phone">099-999-99-99</div>
-		<div class="adress">Киев, ул. Киевская 8, кв. 10</div>
-		<div class="time">14:00 12.09.13</div>
-	</div>
-	<div class="row">
-		<div class="number">1</div>
-		<div class="name">Николай</div>
-		<div class="sostav">Безнос игрушечный - 2 шт</div>
-		<div class="price">Сумма</div>
-		<div class="phone">099-999-99-99</div>
-		<div class="adress">Киев, ул. Киевская 8, кв. 10</div>
-		<div class="time">14:00 12.09.13</div>
-	</div>
+	{{/each}}
 </div>

@@ -1,0 +1,1 @@
+Admin.OrdersIndexController = Ember.ArrayController.extend()
