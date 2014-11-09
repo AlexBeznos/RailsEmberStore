@@ -18,15 +18,21 @@ module API
         # POST /Orders
         # POST /Orders.json
         def create
-          @order = Order.new(tl_params)
-
-          if @order.save
-            if params[:product]
-            	@order.create_order(params[:product])
-            end
-            render json: @order, status: :created
+          if params[:additional]
+            @order = Order.find(params[:additional][:id])
+            @order.create_order(params[:additional][:products])
+            render json: {status: "success"}, status: :created
           else
-             render json: @order.errors, status: :unprocessable_entity
+            @order = Order.new(tl_params)
+
+            if @order.save
+              if params[:product]
+              	@order.create_order(params[:product])
+              end
+              render json: @order, status: :created
+            else
+               render json: @order.errors, status: :unprocessable_entity
+            end
           end
         end
 

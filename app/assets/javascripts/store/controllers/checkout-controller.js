@@ -1,4 +1,4 @@
-Store.CheckoutController = Ember.Controller.extend({
+Store.CheckoutIndexController = Ember.Controller.extend({
   needs: 'application',
   application: Ember.computed.alias("controllers.application"),
   sum: function () {
@@ -10,7 +10,9 @@ Store.CheckoutController = Ember.Controller.extend({
           name = this.get('name'),
           address = this.get('address'),
           sum = this.get('sum'),
-          warning = [];
+          products = this.get('application.shoppingCart'),
+          warning = [],
+          self = this;
 
       if(Ember.isEmpty(name)) {
         warning.push('Нет имени.');
@@ -46,10 +48,37 @@ Store.CheckoutController = Ember.Controller.extend({
           name: name,
           phone: phone,
           address: address,
-          sum: sum
+          sum: sum,
+          product: product_array
         });
 
-        record.save()
+        var product_array = [],
+            productArrayFunction = function(item) {
+              product_array.push(item.get('id'))
+            };
+
+
+        products.forEach(productArrayFunction);
+
+        record.save().then(function(product) {
+          Ember.$.ajax({
+          url: 'api/store/orders',
+          type: 'POST',
+          data: {
+                  additional: {
+                    products: product_array,
+                    id: product.get('id')
+                  }
+                },
+          success: function(res) {
+            self.transitionTo('checkout.success');
+            self.get('application').set('shoppingCart', []);
+            self.set('name', '');
+            self.set('phone', '');
+            self.set('address', '');
+          }
+          })
+        })
       }
     }
   }
