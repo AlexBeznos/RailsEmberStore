@@ -4,5 +4,6 @@ Store.Router.map(function() {
 	this.route('index', { path: '/'}),
 	this.resource('categories'),
 	this.resource('category', {path: 'category/:category_alias'}),
-	this.resource('products')
+	this.resource('products'),
+	this.route('checkout')
 });

@@ -1,0 +1,9 @@
+<h2>Checkout</h2><br>
+<div id="warning"></div>
+<form {{action 'checkout' on="submit"}}>
+	{{input type="text" valueBinding="name" placeholder="name"}}<br>
+	{{input type="tel" valueBinding="phone" placeholder="phone"}}<br>
+	{{input type="text" valueBinding="address" placeholder="address"}}<br>
+	Sum: {{sum}}<br>
+	{{input type="submit"}}
+</form>
