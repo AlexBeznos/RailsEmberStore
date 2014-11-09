@@ -5,5 +5,5 @@ Admin.Order = DS.Model.extend({
 	sum: DS.attr('number'),
 	status: DS.attr(),
 	created_at: DS.attr('date'),
-	product_ids: DS.hasMany('product')
+	product_ids: DS.hasMany('product', { async: true })
 })
