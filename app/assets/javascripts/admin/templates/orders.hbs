@@ -1,10 +1,19 @@
 <div class="last">
 	<p>Заказы:</p>
 	<div class="status_row">
-		<div class="green"></div><span>{{#link-to 'orders.accepted'}}Доставлено{{/link-to}}</span>
-		<div class="yellow"></div><span>{{#link-to 'orders.proccessed'}}Обрабатывается{{/link-to}}</span>
-		<div class="grey"></div><span>{{#link-to 'orders.new'}}Новые заказы{{/link-to}}</span>
+		<div class="green"></div><span>{{#link-to 'accepted'}}Доставлено{{/link-to}}</span>
+		<div class="yellow"></div><span>{{#link-to 'processed'}}Обрабатывается{{/link-to}}</span>
+		<div class="grey"></div><span>{{#link-to 'new'}}Новые заказы{{/link-to}}</span>
 		<div class="all"></div><span>{{#link-to 'orders.index'}}Все заказы{{/link-to}}</span>
+	</div>
+	<div class="row">
+		<div class="number">#</div>
+		<div class="name">Имя</div>
+		<div class="sostav">Состав заказа</div>
+		<div class="price">Сумма</div>
+		<div class="phone">Номер телефона</div>
+		<div class="adress">Адрес доставки</div>
+		<div class="time">Время доставки</div>
 	</div>
 	{{outlet}}
 </div>

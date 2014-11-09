@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 20141109074253) do
     t.decimal  "sum"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "status"
+    t.string   "status",     default: "new"
   end
 
   create_table "orders_products", force: true do |t|
