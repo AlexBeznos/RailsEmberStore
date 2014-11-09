@@ -1,0 +1,10 @@
+<div class="last">
+	<p>Заказы:</p>
+	<div class="status_row">
+		<div class="green"></div><span>{{#link-to 'orders.accepted'}}Доставлено{{/link-to}}</span>
+		<div class="yellow"></div><span>{{#link-to 'orders.proccessed'}}Обрабатывается{{/link-to}}</span>
+		<div class="grey"></div><span>{{#link-to 'orders.new'}}Новые заказы{{/link-to}}</span>
+		<div class="all"></div><span>{{#link-to 'orders.index'}}Все заказы{{/link-to}}</span>
+	</div>
+	{{outlet}}
+</div>

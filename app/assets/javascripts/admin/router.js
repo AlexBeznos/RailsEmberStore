@@ -3,7 +3,7 @@
 Admin.Router.map(function() {
 	this.route('index', {path: '/'}, function() {
 		this.resource('orders', {path: '/'}, function() {
-			this.resource('shipped'),
+			this.resource('accepted'),
 			this.resource('processed'),
 			this.resource('new')
 		}),

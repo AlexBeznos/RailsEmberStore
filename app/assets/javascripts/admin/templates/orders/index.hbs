@@ -1,40 +1,14 @@
-<div class="last">
-	<p>Заказы:</p>
-	<div class="status_row">
-		<div class="green"></div><span><a href="#">Доставлено</a></span>
-		<div class="yellow"></div><span><a href="#">Обрабатывается</a></span>
-		<div class="grey"></div><span><a href="#">Новые заказы</a></span>
-		<div class="all"></div><span><a href="#">Все заказы</a></span>
-	</div>
-	<div class="row">
-		<div class="number">#</div>
-		<div class="name">Имя</div>
-		<div class="sostav">Состав заказа</div>
-		<div class="price">Сумма</div>
-		<div class="phone">Номер телефона</div>
-		<div class="adress">Адрес доставки</div>
-		<div class="time">Время доставки</div>
-	</div>
-	<div class="row accepted">
-		<div class="number">1</div>
-		<div class="name">Николай</div>
-		<div class="sostav">Безнос игрушечный - 2 шт</div>
-		<div class="price">Сумма</div>
-		<div class="phone">099-999-99-99</div>
-		<div class="adress">Киев, ул. Киевская 8, кв. 10</div>
-		<div class="time">14:00 12.09.13</div>
-	</div>
-	<div class="row processed">
-		<div class="number">1</div>
-		<div class="name">Николай</div>
-		<div class="sostav">Безнос игрушечный - 2 шт</div>
-		<div class="price">Сумма</div>
-		<div class="phone">099-999-99-99</div>
-		<div class="adress">Киев, ул. Киевская 8, кв. 10</div>
-		<div class="time">14:00 12.09.13</div>
-	</div>
-	{{#each}}
-	<div class="row">
+<div class="row">
+	<div class="number">#</div>
+	<div class="name">Имя</div>
+	<div class="sostav">Состав заказа</div>
+	<div class="price">Сумма</div>
+	<div class="phone">Номер телефона</div>
+	<div class="adress">Адрес доставки</div>
+	<div class="time">Время доставки</div>
+</div>
+{{#each}}
+	<div {{bind-attr class=":row status"}}>
 		<div class="number">{{id}}</div>
 		<div class="name">{{name}}</div>
 		<div class="sostav">
@@ -49,5 +23,4 @@
 		<div class="adress">{{addres}}</div>
 		<div class="time">{{created_at}}</div>
 	</div>
-	{{/each}}
-</div>
+{{/each}}
