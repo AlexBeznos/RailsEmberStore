@@ -174,6 +174,7 @@ GEM
       rspec-mocks (~> 3.1.0)
       rspec-support (~> 3.1.0)
     rspec-support (3.1.0)
+    sass (3.2.19)
     shoulda-matchers (2.7.0)
       activesupport (>= 3.0.0)
     slop (3.6.0)
@@ -225,6 +226,7 @@ DEPENDENCIES
   rails_12factor
   rails_config
   rspec-rails
+  sass
   shoulda-matchers
   spring
   sqlite3

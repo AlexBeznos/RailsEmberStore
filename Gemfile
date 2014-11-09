@@ -9,6 +9,7 @@ gem 'spring', :group => :development
 gem 'uglifier'
 gem 'devise'
 gem 'rails_config'
+gem 'sass'
 
 group :development, :test do
   gem 'jasmine'
