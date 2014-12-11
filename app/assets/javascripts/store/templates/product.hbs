@@ -1,0 +1,48 @@
+<div class="product-details"><!--product-details-->
+  <div class="col-sm-5">
+    <div class="view-product">
+      {{#each image_ids}}
+        {{#if main}}
+          <img {{bind-attr src=path}} alt="" />
+        {{/if}}
+      {{/each}}
+      <h3>ZOOM</h3>
+    </div>
+    <div id="similar-product" class="carousel slide" data-ride="carousel">
+      
+        <!-- Wrapper for slides -->
+          <div class="carousel-inner">
+          <div class="item active">
+            {{#each image_ids}}
+              {{#unless main}}
+                <a {{bind-attr href=path}}><img {{bind-attr src=path}} style="height:100px;" alt=""></a>
+              {{/unless}}
+            {{/each}}
+          </div>                    
+        </div>
+
+        <!-- Controls -->
+        <a class="left item-control" href="#similar-product" data-slide="prev">
+        <i class="fa fa-angle-left"></i>
+        </a>
+        <a class="right item-control" href="#similar-product" data-slide="next">
+        <i class="fa fa-angle-right"></i>
+        </a>
+    </div>
+
+  </div>
+  <div class="col-sm-7">
+    <div class="product-information"><!--/product-information-->
+      <h2>{{name}}</h2>
+      <p>Web ID: {{id}}</p>
+      <span>
+        <span>US ${{price}}</span>
+        <button {{action addToCart}}type="button" class="btn btn-fefault cart">
+          <i class="fa fa-shopping-cart"></i>
+          Add to cart
+        </button>
+      </span>
+      <p><b>Availability:</b>{{#unless active}}Not{{/unless}} In Stock</p>
+    </div><!--/product-information-->
+  </div>
+</div><!--/product-details-->

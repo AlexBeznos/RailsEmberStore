@@ -1,6 +1,9 @@
 Store.ProductController = Ember.ObjectController.extend({
   needs: 'application',
   application: Ember.computed.alias("controllers.application"),
+  modelmodel: Ember.computed(function() {
+    console.log(this.get('model'));
+  }),
   actions: {
     addToCart: function() {
       var app = this.get('application'),

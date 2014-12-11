@@ -932,7 +932,7 @@ h2.title {
 }
 
 
-.product-overlay p{
+.product-overlay p a{
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
   font-weight: 400;

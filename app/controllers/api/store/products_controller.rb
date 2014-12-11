@@ -9,6 +9,8 @@ module API
         elsif params[:filter] == 'random'
           ids = Product.pluck(:id).shuffle[0..2] # postgresql Product.limit(3).order("RANDOM()")
           @products = Product.where(id: ids)
+        elsif params[:product_alias]
+          @products = Product.find_by(alias: params[:product_alias])
         else
           @products = Product.all
         end
