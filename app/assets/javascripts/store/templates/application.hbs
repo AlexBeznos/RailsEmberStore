@@ -100,13 +100,6 @@
         </div>
         <div class="col-sm-9">
           {{outlet}}
-          <div>afdasdf
-            <ul>
-              {{#each shoppingCart}}
-                <li>{{name}}</li>
-              {{/each}}
-            </ul>
-          </div>
         </div>
       </div>
     </div>
@@ -198,7 +191,7 @@
       <div class="container">
         <div class="row">
           <p class="pull-left">Copyright © 2013 E-SHOPPER Inc. All rights reserved.</p>
-          <p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p>
+          <p class="pull-right">Programming by <span><a href="https://github.com/AlexBeznos/">AlexBeznos</a></span> | Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p>
         </div>
       </div>
     </div>
@@ -239,7 +232,7 @@
       </div>
       <div class="modal-footer">
         {{#if shoppingCart}}
-          <button type="button" class="btn btn-primary">Checkout!</button>
+          {{#link-to 'checkout'}}<button type="button" class="btn btn-primary">Checkout!</button>{{/link-to}}
         {{/if}}
       </div>
     </div>

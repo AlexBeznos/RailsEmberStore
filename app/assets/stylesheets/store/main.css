@@ -2528,3 +2528,8 @@ h2.title {
 .shoppingCart-box {
   float: left;
 }
+
+
+.form-horizontal .checkbox {
+  margin-left: -20px;
+}
