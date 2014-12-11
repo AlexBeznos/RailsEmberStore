@@ -2520,4 +2520,11 @@ h2.title {
   color: #FE980F;
 }
 
+.shoppingCart-item {
+  display: inline-block;
+  width: 100%;
+}
 
+.shoppingCart-box {
+  float: left;
+}

@@ -36,7 +36,7 @@
           <div class="col-sm-8">
             <div class="shop-menu pull-right">
               <ul class="nav navbar-nav">
-                <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+                <li><a data-toggle="modal" data-target="#cart"><i class="fa fa-shopping-cart"></i> Cart</a></li>
               </ul>
             </div>
           </div>
@@ -204,3 +204,44 @@
     </div>
     
   </footer><!--/Footer-->
+
+  <!-- Modal -->
+<div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Shopping cart</h4>
+      </div>
+      <div class="modal-body">
+        {{#each shoppingCart}}
+          <div class='shoppingCart-item'>
+            <div class="shoppingCart-box">
+              {{#each image_ids}}
+                {{#if main}}
+                  <img {{bind-attr src=path}} style="height: 100px;">
+                {{/if}}
+              {{/each}}
+            </div>
+            <div class="shoppingCart-box">
+              {{#link-to 'product' id}}{{name}}{{/link-to}}
+            </div>
+            <div class="shoppingCart-box pull-right">
+              <button {{action 'delete' this}}class="btn btn-default"><i class="fa fa-times"></i></button>
+            </div>
+          </div>
+        {{else}}
+          It is no products in shopping cart yet...
+        {{/each}}
+        {{#if shoppingCart}}
+          <div class="shoppingCart-item" style="text-align: right;">Total: ${{sum}}</div>
+        {{/if}}      
+      </div>
+      <div class="modal-footer">
+        {{#if shoppingCart}}
+          <button type="button" class="btn btn-primary">Checkout!</button>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</div>

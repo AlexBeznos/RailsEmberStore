@@ -12,13 +12,13 @@
             {{/each}}
             <h2>${{price}}</h2>
             <p>{{name}}</p>
-            <a {{action 'addToCart'}} class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+            <a {{action 'addToCart'}} class="btn btn-default add-to-cart" data-toggle="modal" data-target="#cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
           </div>
           <div class="product-overlay">
             <div class="overlay-content">
               <h2>${{price}}</h2>
               <p>{{name}}</p>
-              <a {{action 'addToCart'}}class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+              <a {{action 'addToCart'}}class="btn btn-default add-to-cart" data-toggle="modal" data-target="#cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
             </div>
           </div>
       </div>
@@ -41,13 +41,13 @@
             {{/each}}
             <h2>${{price}}</h2>
             <p>{{name}}</p>
-            <a {{action 'addToCart'}} class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+            <a {{action 'addToCart'}} class="btn btn-default add-to-cart" data-toggle="modal" data-target="#cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
           </div>
           <div class="product-overlay">
             <div class="overlay-content">
               <h2>${{price}}</h2>
               <p>{{#link-to 'product' id}}{{name}}{{/link-to}}</p>
-              <a {{action 'addToCart'}}class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+              <a {{action 'addToCart'}}class="btn btn-default add-to-cart" data-toggle="modal" data-target="#cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
             </div>
           </div>
       </div>
