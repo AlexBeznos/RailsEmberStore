@@ -34,7 +34,7 @@
 	    <div class="sort_product">{{position}}</div>
 	    <div class="destroy" {{action 'destroy'}}><a>X</a></div>
 	    {{#each image_ids}}
-			<div class="image"><img {{bind-attr src=path}}></div>
+			<div class="image"><img {{bind-attr src=path}} widht="50px" height="100px"></div>
 		{{/each}}
 	</div>
 	{{else}}

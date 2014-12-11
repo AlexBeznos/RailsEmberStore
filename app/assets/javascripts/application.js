@@ -1,4 +1,5 @@
 //= require jquery
+//= require bootstrap-sprockets
 //= require handlebars
 //= require ember
 //= require ember-data

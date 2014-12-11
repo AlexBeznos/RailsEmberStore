@@ -4,6 +4,11 @@ module API
       def index
         if params[:alias]
           @products = Category.find_by(alias: params[:alias]).products
+        elsif params[:filter] == 'last'
+          @products = Product.last(3)
+        elsif params[:filter] == 'random'
+          ids = Product.pluck(:id).shuffle[0..2] # postgresql Product.limit(3).order("RANDOM()")
+          @products = Product.where(id: ids)
         else
           @products = Product.all
         end
