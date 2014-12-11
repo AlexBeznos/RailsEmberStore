@@ -2,7 +2,11 @@ module API
   module Store
     class CategoriesController < ApplicationController
   	  def index
-        @categories = Category.all
+        if params[:alias]
+          @categories = Category.find_by(alias: params[:alias])
+        else
+          @categories = Category.all
+        end
 
         render json: @categories
       end

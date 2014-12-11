@@ -1,5 +1,28 @@
-<ul>
-	{{#each itemController="product"}}
-		<li>{{name}} - <button {{action 'addToCart'}}>Add to cart</button></li>
-	{{/each}}
-</ul>
+<div class="features_items">
+  <h2 class="title text-center">Products</h2>
+  {{#each itemController="indexItem"}}
+  <div class="col-sm-4">
+    <div class="product-image-wrapper">
+      <div class="single-products">
+          <div class="productinfo text-center">
+            {{#each image_ids}}
+              {{#if main}}
+                <img {{bind-attr src=path}} alt="" />
+              {{/if}}
+            {{/each}}
+            <h2>${{price}}</h2>
+            <p>{{name}}</p>
+            <a {{action 'addToCart'}} class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+          </div>
+          <div class="product-overlay">
+            <div class="overlay-content">
+              <h2>${{price}}</h2>
+              <p>{{name}}</p>
+              <a {{action 'addToCart'}}class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  {{/each}}
+</div>
