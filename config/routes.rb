@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     end
 
     namespace "store" do
+      match 'mail', to: 'mail#post', via: [:post]
       resources :categories, only: [:index, :show]
       resources :products, only: [:index, :show]
       resources :orders, only: [:index, :show, :create]
