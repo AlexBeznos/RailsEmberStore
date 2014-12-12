@@ -1,12 +1,9 @@
 <header>
-	<div class="support">Служба поддержки : 099-999-99-99</div>
 	<div class="logo">
-		<a href="#"><img src="images/logo.png" alt="" /></a>
+		{{#link-to 'index' class="font-effect-shadow-multiple"}}Dashboard{{/link-to}}
 	</div>
 	<div class="buttons">
-		<a href="#"><div>Настройки <img src="images/config.png" alt="" /></div></a>
-		<a href="#"><div>User : admin <img src="images/config.png" alt="" /></div></a>
-		<a href="#"><div {{action 'logOut'}}>Выход <img src="images/config.png" alt="" /></div></a>
+		<a href="#"><div {{action 'logOut'}}>Выход <i class="fa fa-sign-out pull-right"></i></div></a>
 	</div>
 </header>
 <div class="content">
@@ -15,9 +12,6 @@
 			<li>{{#link-to 'index'}}Главная{{/link-to}}</li>
 			<li>{{#link-to 'categories'}}Категории{{/link-to}}</li>
 			<li>{{#link-to 'products'}}Товары{{/link-to}}</li>  
-			<li><a href="zakazi.html">Заказы</a></li> 
-			<li><a href="users.html">Пользователи</a></li>  
-			<li><a href="stat.html">Статистика</a></li>
 		</ul>
 	</div>
 
@@ -25,8 +19,5 @@
 	{{ outlet }}
 </div>
 <footer>
-	<div class="logo_footer">
-		<a href="#"><img src="images/logo_footer.png" alt="" /></a>
-	</div>
-	<div class="copyright"><a href="#">Rabby 2014©</a></div>
+	<div class="copyright">Created by <a href="https://github.com/AlexBeznos/">AlexBeznos</a> 2014©</a></div>
 </footer>

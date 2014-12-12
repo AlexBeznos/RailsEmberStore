@@ -1,8 +1,5 @@
-/*  основной цвет - #2eae63 
-    цвет фона - #d2d3d5
-    цвета для текста - #ffffff, #333333
-    доп цвета - ?
-*/
+
+@import "store/font-awesome.min.css";
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -586,4 +583,25 @@ div.droppable:hover div.file:hover {
 div.image {
     width: 100px;
     height: 100px;
+}
+
+header {
+    height: 35px;
+}
+.logo a {
+    font-family: 'Rancho';
+    font-size: 40px;
+    text-decoration: none;
+    color: rgba(0,0,0,0.7);
+}
+.logo a:hover {
+    color: rgba(0,0,0,1);
+}
+
+.logo {
+    padding-top: 10px;
+}
+
+footer {
+    min-height: 72px;
 }
