@@ -37,7 +37,7 @@
       <p>Web ID: {{id}}</p>
       <span>
         <span>US ${{price}}</span>
-        <button {{action addToCart}}type="button" class="btn btn-fefault cart">
+        <button {{action 'addToCart'}} data-toggle="modal" data-target="#cart" type="button" class="btn btn-fefault cart">
           <i class="fa fa-shopping-cart"></i>
           Add to cart
         </button>

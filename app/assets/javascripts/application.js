@@ -1,5 +1,5 @@
 //= require ./both
-//= require bootstrap-sprockets
+//= require ./bootstrap/bootstrap
 //= require_self
 //= require ./store/store
 

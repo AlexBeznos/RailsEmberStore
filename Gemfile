@@ -9,7 +9,6 @@ gem 'spring', :group => :development
 gem 'uglifier'
 gem 'devise'
 gem 'rails_config'
-gem 'bootstrap-sass', '~> 3.3.1.0'
 gem 'sass-rails', '>= 3.2'
 gem 'autoprefixer-rails'
 
