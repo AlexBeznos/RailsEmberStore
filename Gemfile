@@ -9,8 +9,8 @@ gem 'spring', :group => :development
 gem 'uglifier'
 gem 'devise'
 gem 'rails_config'
-gem 'bootstrap-sass'
-gem 'sass-rails'
+gem 'bootstrap-sass', '~> 3.3.1'
+gem 'sass-rails', '>= 3.2'
 gem 'autoprefixer-rails'
 
 group :development, :test do
