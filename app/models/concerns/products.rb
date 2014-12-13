@@ -23,11 +23,8 @@ module Products
 
   def delete_images
     self.images.each do |image|
-      match = image.path.scan(/\w+\.\w+$/)
-      path = Rails.root + 'app/assets/images/' + match[0]
-      if File.exist?(path)
-        File.delete(path)
-      end
+      img_url = URI.parse(image.path)
+      S3_BUCKET.objects.delete(File.basename(uri.path))
     end
   end
 
