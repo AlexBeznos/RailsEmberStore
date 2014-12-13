@@ -32,6 +32,11 @@ GEM
     arel (5.0.1.20140414130214)
     autoprefixer-rails (3.0.1.20140826)
       execjs
+    aws-sdk (1.59.1)
+      aws-sdk-v1 (= 1.59.1)
+    aws-sdk-v1 (1.59.1)
+      json (~> 1.4)
+      nokogiri (>= 1.4.4)
     barber (0.4.2)
       ember-source
       execjs
@@ -221,6 +226,7 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers (= 0.8.2)
   autoprefixer-rails
+  aws-sdk
   capybara
   devise
   ember-rails

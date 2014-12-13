@@ -604,3 +604,14 @@ header {
 footer {
     min-height: 72px;
 }
+
+.check div{
+    float: left;
+    &:first-child {
+        width: 110px;
+    }
+    &:nth-child(2) {
+        margin-left: 10px;
+        width: 20px;
+    }
+}

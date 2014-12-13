@@ -4,6 +4,7 @@ gem 'rails', '4.1.0'
 gem 'rails-api'
 gem 'ember-rails'
 gem 'jquery-rails'
+gem 'aws-sdk'
 gem 'active_model_serializers', "0.8.2"
 gem 'spring', :group => :development
 gem 'uglifier'

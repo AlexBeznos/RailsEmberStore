@@ -2,14 +2,14 @@ module Products
 
   def add_images(img_arr)
     i = 0
-    img_arr.each do |hash|
+    img_arr.each do |img|
       i+=1
       i == 1 ? status = true : status = false
-      name = make_unique(File.extname(hash.original_filename))
-      directory = "app/assets/images"
-      path = File.join(directory, name)
-      File.open(path, "wb") { |f| f.write(hash.read) }
-      Product.last.images << Image.create(path: '/' + File.join('assets', name), main: status)
+      name = make_unique(File.extname(img.original_filename))
+      disk = S3_BUCKET.objects[name]
+      disk.write(img)
+      disk.acl = :public_read
+      Product.last.images << Image.create(path: disk.public_url.to_s, main: status)
     end
   end
 
