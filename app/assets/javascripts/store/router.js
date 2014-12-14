@@ -5,7 +5,8 @@ Store.Router.map(function() {
 	this.resource('category', {path: 'category/:category_alias'}),
 	this.resource('product', {path: 'product/:alias'}),
   this.route('contact-us', function() {
-    this.route('sended')
+    this.route('sended'),
+    this.route('unsended')
   }),
 	this.route('checkout', function() {
 		this.route('index'),

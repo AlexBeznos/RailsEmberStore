@@ -484,14 +484,14 @@ ul.counts li {
 
 div.droppable {
     background-color: #eee;
-    height: 300px;
-    width: 620px;
+    height: 200px;
+    width: 435px;
     position: relative;
     padding: 20px;
 }
 
 div.droppable:after {
-    content: "Drop your files here, petal.";
+    content: "Drop your files here.";
     font-family: "Times New Roman", serif;
     color: darkgray;
     font-size: 14px;
@@ -553,8 +553,8 @@ div.droppable div.file .destroy{
 
 div.droppable input.files {
     position: absolute;
-    bottom: 20px;
-    right: 20px;
+    top: 15px;
+    right: -30px;
     font-family: "Times New Roman", serif;
     font-style: italic;
     color: darkgray;

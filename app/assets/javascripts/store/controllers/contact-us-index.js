@@ -17,6 +17,9 @@ Store.ContactUsIndexController = Ember.Controller.extend({
         data: json,
         success: function(res) {
           self.transitionTo('contact-us.sended')
+        },
+        error: function(res) {
+          self.transitionTo('contact-us.unsended')
         }
       })
     }
